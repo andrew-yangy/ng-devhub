@@ -14,7 +14,7 @@ import {ThemeModule} from './@theme/theme.module';
         BrowserModule,
         BrowserAnimationsModule,
         AppRoutingModule,
-        AuthModule.forRoot(),
+        AuthModule.forRoot({tokenKey: 'token'}),
         ThemeModule.forRoot()
     ],
     declarations: [

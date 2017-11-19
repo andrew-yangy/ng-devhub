@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthResult, AuthService} from '../services/auth.service';
-import {Router} from '@angular/router';
+import {Component, OnInit} from "@angular/core";
+import {AuthResult, AuthService} from "../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-login',
@@ -25,15 +25,15 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
     }
     login() {
-        this.authService.authenticate(this.user.email)
-            .subscribe((res: boolean) => {
-                    if (res) {
-                        this.router.navigate(['/']);
-                    }
+        this.authService.authenticate(this.user)
+            .subscribe((result: AuthResult) => {
+                const redirect = result.getRedirect();
+                if (result.isSuccess() && redirect) {
+                    return this.router.navigateByUrl(redirect);
                 }
-            );
+            });
     }
-    getConfigValue() {
+    getConfigValue(par?: any) {
         return ;
     }
 }
