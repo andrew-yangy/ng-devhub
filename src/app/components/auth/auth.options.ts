@@ -1,14 +1,26 @@
 import {InjectionToken} from "@angular/core";
 export interface AuthConfig {
-    tokenKey: string;
+    tokenKey?: string;
     authUrl?: string;
+    redirectTo?: string;
 }
 export const defaultConfig: AuthConfig = {
     tokenKey: 'auth_token',
-    authUrl: null
+    redirectTo: '/'
 };
 export function authConfigFactory(config: AuthConfig) {
-    return Object.assign(defaultConfig, config)
+    return Object.assign(defaultConfig, config);
+}
+export class AuthResult {
+    constructor(
+        readonly success: boolean,
+        readonly token: string,
+        readonly redirect?: string,
+    ) {}
+}
+export class LoginData {
+    username: string;
+    password: string;
 }
 export const USER_CONFIG = new InjectionToken<AuthConfig>('User config');
 export const AUTH_CONFIG = new InjectionToken<AuthConfig>('Auth config');
