@@ -1,13 +1,12 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
-import {LayoutComponent} from './components/layout/layout.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AuthModule} from './components/auth/auth.module';
-import {AuthGuard} from './@core/services/auth.guard';
 import {ThemeModule} from './@theme/theme.module';
+import { CoreModule } from './@core/core.module';
+import { AuthModule } from './@core/auth/auth.module';
 
 @NgModule({
     imports: [
@@ -15,15 +14,11 @@ import {ThemeModule} from './@theme/theme.module';
         BrowserAnimationsModule,
         AppRoutingModule,
         AuthModule.forRoot({tokenKey: 'token'}),
-        ThemeModule.forRoot()
+        ThemeModule.forRoot(),
+        CoreModule.forRoot()
     ],
     declarations: [
-        AppComponent,
-        LayoutComponent,
-        DashboardComponent,
-    ],
-    providers: [
-        AuthGuard
+        AppComponent
     ],
     bootstrap: [AppComponent]
 })
