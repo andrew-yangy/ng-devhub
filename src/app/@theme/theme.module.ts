@@ -1,6 +1,4 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {
@@ -25,16 +23,10 @@ import {
     ThemeSwitcherComponent,
 } from './components';
 import {CapitalizePipe, PluralPipe, RoundPipe, TimingPipe} from './pipes';
-import {
-    OneColumnLayoutComponent,
-    SampleLayoutComponent,
-    ThreeColumnsLayoutComponent,
-    TwoColumnsLayoutComponent,
-} from './layouts';
 import {DEFAULT_THEME} from './styles/theme.default';
 import {COSMIC_THEME} from './styles/theme.cosmic';
-
-const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
+import { LayoutComponent } from './layouts/layout.component';
+import { SharedModule } from '../shared/shared.module';
 
 const NB_MODULES = [
     NbCardModule,
@@ -56,10 +48,7 @@ const COMPONENTS = [
     FooterComponent,
     SearchInputComponent,
     ThemeSettingsComponent,
-    OneColumnLayoutComponent,
-    SampleLayoutComponent,
-    ThreeColumnsLayoutComponent,
-    TwoColumnsLayoutComponent,
+    LayoutComponent
 ];
 
 const PIPES = [
@@ -81,8 +70,8 @@ const NB_THEME_PROVIDERS = [
 ];
 
 @NgModule({
-    imports: [...BASE_MODULES, ...NB_MODULES],
-    exports: [...BASE_MODULES, ...NB_MODULES, ...COMPONENTS, ...PIPES],
+    imports: [SharedModule, ...NB_MODULES],
+    exports: [...NB_MODULES, ...COMPONENTS, ...PIPES],
     declarations: [...COMPONENTS, ...PIPES],
 })
 export class ThemeModule {

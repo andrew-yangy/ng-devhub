@@ -5,18 +5,11 @@ import {HttpClientModule} from '@angular/common/http';
 import {ThemeModule} from '../@theme/theme.module';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        ThemeModule
-    ],
     exports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        ThemeModule
+        HttpClientModule
     ]
 })
 export class SharedModule {

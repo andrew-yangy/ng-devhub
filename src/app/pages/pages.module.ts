@@ -9,6 +9,7 @@ import { PagesComponent } from './pages.component';
 @NgModule({
     imports: [
         SharedModule,
+        ThemeModule,
         PagesRoutingModule
     ],
     declarations: [
