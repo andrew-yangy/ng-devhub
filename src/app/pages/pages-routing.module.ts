@@ -1,8 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
+import { GithubComponent } from './github/github.component';
 
 const routes: Routes = [{
     path: '',
@@ -10,12 +10,12 @@ const routes: Routes = [{
     children: [
         {
             path: '',
-            redirectTo: 'dashboard',
+            redirectTo: 'github',
             pathMatch: 'full'
         },
         {
-            path: 'dashboard',
-            component: DashboardComponent,
+            path: 'github',
+            component: GithubComponent,
         }
     ],
 }];

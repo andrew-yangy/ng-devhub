@@ -19,7 +19,7 @@ export class AuthResult {
     ) {}
 }
 export class LoginData {
-    username: string;
+    email: string;
     password: string;
 }
 export const USER_CONFIG = new InjectionToken<AuthConfig>('User config');

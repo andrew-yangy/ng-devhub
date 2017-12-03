@@ -52,47 +52,6 @@ import { UserService } from "../../@core/data/users.service";
   `
 })
 export class LayoutComponent implements OnDestroy {
-  subMenu: NbMenuItem[] = [
-    {
-      title: "PAGE LEVEL MENU",
-      group: true
-    },
-    {
-      title: "Buttons",
-      icon: "ion ion-android-radio-button-off",
-      link: "/pages/ui-features/buttons"
-    },
-    {
-      title: "Grid",
-      icon: "ion ion-android-radio-button-off",
-      link: "/pages/ui-features/grid"
-    },
-    {
-      title: "Icons",
-      icon: "ion ion-android-radio-button-off",
-      link: "/pages/ui-features/icons"
-    },
-    {
-      title: "Modals",
-      icon: "ion ion-android-radio-button-off",
-      link: "/pages/ui-features/modals"
-    },
-    {
-      title: "Typography",
-      icon: "ion ion-android-radio-button-off",
-      link: "/pages/ui-features/typography"
-    },
-    {
-      title: "Animated Searches",
-      icon: "ion ion-android-radio-button-off",
-      link: "/pages/ui-features/search-fields"
-    },
-    {
-      title: "Tabs",
-      icon: "ion ion-android-radio-button-off",
-      link: "/pages/ui-features/tabs"
-    }
-  ];
   user: any = {};
   layout: any = {};
   sidebar: any = {};
@@ -106,7 +65,7 @@ export class LayoutComponent implements OnDestroy {
 
   constructor(
     protected stateService: StateService,
-    private userService: UserService,
+    protected userService: UserService,
     protected menuService: NbMenuService,
     protected themeService: NbThemeService,
     protected bpService: NbMediaBreakpointsService,
@@ -130,10 +89,7 @@ export class LayoutComponent implements OnDestroy {
       .onItemSelect()
       .withLatestFrom(this.themeService.onMediaQueryChange())
       .delay(20)
-      .subscribe(
-        (
-          [item, [bpFrom, bpTo]]: [any, [NbMediaBreakpoint, NbMediaBreakpoint]]
-        ) => {
+      .subscribe(([item, [bpFrom, bpTo]]: [any, [NbMediaBreakpoint, NbMediaBreakpoint]]) => {
           if (bpTo.width <= isBp.width) {
             this.sidebarService.collapse("menu-sidebar");
           }

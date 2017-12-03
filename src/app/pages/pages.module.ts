@@ -2,19 +2,19 @@ import { NgModule } from '@angular/core';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { SharedModule } from '../shared/shared.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
+import { GithubModule } from './github/github.module';
 
 
 @NgModule({
     imports: [
         SharedModule,
         ThemeModule,
-        PagesRoutingModule
+		PagesRoutingModule,
+		GithubModule
     ],
     declarations: [
-        PagesComponent,
-        DashboardComponent
+        PagesComponent
     ],
 })
 export class PagesModule {

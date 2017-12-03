@@ -6,9 +6,9 @@ export class MenuService {
 
     menu: NbMenuItem[] = [
         {
-            title: 'Dashboard',
-            icon: 'nb-home',
-            link: '/pages/dashboard',
+            title: 'GitHub',
+            icon: 'fa fa-github',
+            link: 'github',
             home: true,
         },
         {
