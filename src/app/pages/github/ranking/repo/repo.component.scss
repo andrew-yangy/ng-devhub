@@ -1,0 +1,37 @@
+@import "../../../../@theme/styles/themes";
+
+@include nb-install-component() {
+	.title {
+		font-family: nb-theme(font-secondary);
+		font-size: 1.25rem;
+		font-weight: nb-theme(font-weight-bold);
+		color: nb-theme(card-fg-heading);
+	}
+
+	.info {
+		font-size: 1rem;
+		font-weight: nb-theme(font-weight-light);
+		text-transform: uppercase;
+		color: nb-theme(card-fg);
+	}
+
+	.status-block {
+		display: inline-block;
+		margin-right: 1rem;
+	}
+
+	.repo-language-color {
+		position: relative;
+		top: 1px;
+		display: inline-block;
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+	}
+
+	.gh-avatar {
+		width: 2rem;
+		height: 2rem;
+		border-radius: 3px;
+	}
+}

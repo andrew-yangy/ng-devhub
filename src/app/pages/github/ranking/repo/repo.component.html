@@ -1,0 +1,27 @@
+<div class="avatar">
+	<img src="{{repo.owner.avatar_url}}&s=100" [ngStyle]="{'color': color}">
+</div>
+<div class="details">
+	<div class="title">{{repo.full_name}}</div>
+	<div class="info">{{repo.description}}</div>
+	<div class="status">
+		<div class="status-block" *ngIf="repo.language">
+			<span class="repo-language-color" [ngStyle]="{'background-color': color}"></span>
+			<span>{{repo.language}}</span>
+		</div>
+		<div class="status-block">
+			<span class="fa fa-star"></span>
+			<span>{{repo.stargazers_count | number}}</span>
+		</div>
+		<div class="status-block">
+			<span class="fa fa-code-fork"></span>
+			<span>{{repo.forks_count | number}}</span>
+		</div>
+		<div class="status-block">
+			<span>Contributors: </span>
+			<span *ngFor="let contr of contributors">
+				<img class="gh-avatar" src="{{contr.avatar_url}}&s=40">
+			</span>
+		</div>
+	</div>
+</div>

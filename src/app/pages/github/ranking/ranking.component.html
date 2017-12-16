@@ -1,25 +1,18 @@
 <nb-card>
 	<nb-tabset fullWidth>
 		<nb-tab tabTitle="Repositories">
-			<div class="ranking" *ngFor="let repo of repos">
-				<nb-card>
-					<div class="ranking-container">
-						<div class="avatar">
-							<img src="{{repo.owner.avatar_url}}&s=160">
-						</div>
-						<div class="details">
-							<div class="title">{{repo.full_name}}</div>
-							<div class="status">{{repo.description}}</div>
-						</div>
-					</div>
-				</nb-card>
-			</div>
+			<nb-card *ngFor="let repo of repos">
+				<div class="ranking-container">
+					<repo-item [repo]="repo"></repo-item>
+				</div>
+			</nb-card>
 		</nb-tab>
 		<nb-tab tabTitle="Develpoers">
-			<!-- <div class="contact" *ngFor="let c of recent">
-				<nb-user [picture]="c.user.picture" [name]="c.user.name" [title]="c.type" size="large"></nb-user>
-				<span class="time">{{ c.time }}</span>
-			</div> -->
+			<nb-card *ngFor="let dev of devs">
+				<div class="ranking-container">
+					<dev-item [dev]="dev"></dev-item>
+				</div>
+			</nb-card>
 		</nb-tab>
 	</nb-tabset>
 </nb-card>
